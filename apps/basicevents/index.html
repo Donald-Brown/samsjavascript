@@ -3,10 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    function sayHello(name){
+      alert(`Hello ${name}`);
+    };
+
+    function buttonReport(buttonId, buttonName, buttonValue) {
+    // information about the id of the button
+    var userMessage1 = "Button id: " + buttonId + "\n";
+    // then about the button name
+    var userMessage2 = "Button name: " + buttonName + "\n";
+    // and the button value
+    var userMessage3 = "Button value: " + buttonValue;
+    // alert the user
+    alert(userMessage1 + userMessage2 + userMessage3);
+    };
+
+  </script>
   <title>Basic Events</title>
 </head>
 <body>
   <input type="button" onclick="alert('You clicked the button!')" value="click me">
+
+  <input type="button" onclick="sayHello('Bob')" value="say hello">
+
+  <input type="button" id="2" name="button" onclick="buttonReport(this.id, this.name, this.value);" value="button report">
 
   <img src="../../images/logo.png" alt="logo" style="display: block; height: 50px; margin-top: 50px;" onmouseover="this.src='../../images/jeremy-thomas-E0AHdsENmDg-unsplash.jpg'" onmouseout="this.src='../../images/logo.png'" >
 
