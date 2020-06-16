@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fat Arrow with Default Param</title>
+  </head>
+  <body>
+    <script>
+      //default params should always come after non default params
+      let warn = (temp, headline = "warning") =>
+        alert(`${headline}:\nA temp of ${temp} is too high!`);
+      warn(95);
+      warn(100, '****danger****');
+    </script>
+  </body>
+</html>

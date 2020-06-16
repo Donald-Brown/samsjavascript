@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scope</title>
+  </head>
+  <body>
+    <script>
+      var a = 10;
+      var b = 10;
+      function showVars() {
+        var a = 20;
+        b = 20;
+        return `this.a = ${this.a}\nLocal variable 'a' = ${a}\nGlobal variable 'b' = ${b}`;
+      }
+
+      var message = showVars();
+      alert(`${message}\nGlobal variable 'a' = ${a}`);
+
+      function myFunction(x) {
+        var y = x;
+        if (x > 50) {
+          var y = 10;
+          alert("Inner y = " + y); // alerts 10
+        }
+        alert("Outer y = " + y); // alerts 10
+      }
+
+      myFunction(100);
+
+      /*using let instead of var*/
+    function myFunction2(x) {
+        var y = x;
+        if (x > 50) {
+          let y = 10;
+          alert("Inner y = " + y); // alerts 10
+        }
+        alert("Outer y = " + y); // alerts 100
+      }
+
+      myFunction2(100);
+    </script>
+  </body>
+</html>
