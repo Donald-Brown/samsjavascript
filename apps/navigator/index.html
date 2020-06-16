@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      border: 1px solid gray;
+      padding: 3px 5px;
+    }
+  </style>
+  <title>Using Navigator Object</title>
+</head>
+<body>
+  <script>
+    document.write('<table>');
+    document.write(`<tr><td>appName</td><td>${navigator.appName}</td></tr>`);
+    document.write(`<tr><td>appCodeName</td><td>${navigator.appCodeName}</td></tr>`);
+    document.write(`<tr><td>appVersion</td><td>${navigator.appVersion}</td></tr>`);
+    document.write(`<tr><td>language</td><td>${navigator.language}</td></tr>`);
+    document.write(`<tr><td>coolieEnabled</td><td>${navigator.cookieEnabled}</td></tr>`);
+    document.write(`<tr><td>product</td><td>${navigator.product}</td></tr>`);
+    document.write(`<tr><td>onLine</td><td>${navigator.onLine}</td></tr>`);
+    document.write(`<tr><td>platform</td><td>${navigator.platform}</td></tr>`);
+    document.write(`<tr><td>No. of plugins</td><td>${navigator.plugins.length}</td></tr>`);
+    document.write('</table>');
+  </script>
+  
+</body>
+</html>
