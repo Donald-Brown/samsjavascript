@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/themes/prism.min.css" integrity="sha256-cuvic28gVvjQIo3Q4hnRpQSNB0aMw3C+kjkR0i+hrWg=" crossorigin="anonymous" />
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/themes/prism-tomorrow.min.css"
+      integrity="sha256-xevuwyBEb2ZYh4nDhj0g3Z/rDBnM569hg9Vq6gEw/Sg="
+      crossorigin="anonymous"
+    /> -->
+
+    <title>Arrays</title>
+  </head>
+  <body>
+    <h3>initialilzing arrays</h3>
+    <pre><code class="lang-js">
+let array = ['Monday', 
+'Tuesday', 
+'Wednesday'];
+
+let arr2 = [];
+arr2[0] = 'Monday';
+arr2[1] = 'Tuesday';
+arr2[2] = 'Wednesday';
+
+let arr3 = new Array();
+arr3[0] = 'Thursday';
+arr3[1] = 'Friday';
+      
+arr2.length // returns 3    
+  </code></pre>
+    <h3>Common Array Methods</h3>
+    <dl>
+      <dt>concat</dt>
+      <dd>- Joins multiple arrays</dd>
+      <dt>join</dt>
+      <dd>- joins all the elements together into a string</dd>
+      <dt>toString</dt>
+      <dd>- Returns the array as a string</dd>
+      <dt>indexOf</dt>
+      <dd>- Searches for a specific element</dd>
+      <dt>lastIndexOf</dt>
+      <dd>- Returns the last element that meet the critera</dd>
+      <dt>slice</dt>
+      <dd>- Returns new array from the specified index and length</dd>
+      <dt>sort</dt>
+      <dd>- sort alpha or by desired function</dd>
+      <dt>splice</dt>
+      <dd>- adds or deletes specified index&#40;es&#41; to or from the array</dd>
+    </dl>
+    <pre><code class="lang-js">
+let week = arr2.concat(arr3);
+document.write(`<p>${week}</p>`);
+// combines the two arrays in 
+// a new array
+
+week.join('-');
+// returns Monday-Tuesda-Wednesday-
+// Thursday-Friday
+
+arr3.toString;
+// returns Thursday,Friday
+
+week.indexOf('Tuesday');
+// returns 1 the 0 based index
+week.indexOf('Saturday');
+//returns -1 indicating not found
+
+week.slice(1, 3);
+// returns Tuesday,Wednesday
+// note end not inclusive
+// negatives start at end
+// both args are optional
+
+week.sort();
+// returns 'Friday', 'Monday', 'Thursday', 
+// 'Tuesday', 'Wednesday'
+// numbers are sorted by alphabetical
+// names not value
+
+array.splice(index, # to delete, [new elements])
+week.splice(2, 1, 'holiday');
+// changes the original array and
+// returns the deleted elemenets
+
+function wrangleArray() {
+  var sentence = "JavaScript is a really cool language";
+  var newSentence = "";
+  //Write it out
+  document.getElementById("div1").innerHTML = "<p>" + sentence + "</p>";
+  //Convert to an array
+  var words = sentence.split(" ");
+  // Remove 'really' and 'cool', and add 'powerful' instead
+  var message = words.splice(3,2,"powerful");
+  // use an alert to say what words were removed
+  alert('Removed words: ' + message);
+  // Convert the array to a string, and write it out
+  document.getElementById("div2").innerHTML = "<p>" + words.join(" ") + "</p>";
+}
+
+
+let myArr = [2, 3, 4, 5, 6];
+
+function cube(x){
+  console.log(x*x*x);
+}
+myArr.forEach(cube);
+// or use a for of
+for(let y of myArr){
+  cube(y);
+}
+
+
+
+function cube2(x){
+  return x*x*x;
+}
+newArr = myArr.map(cube2);
+// newArr = [8, 27, 64, 125, 216];
+// map return a new array leaving the original
+
+//spread operator or rest parameter
+let fruit1 = ['apple', 'banana', 'pear'];
+let fruit2 = ['orange', 'cherry', 'fig'];
+let fruit3 = ['orange', ...fruit1, 'cherry', 'fig'];
+// fruit3 now contains ['orange', 'apple', 'banana', 'pear', 'cherry', 'fig']
+Math.min(...newArr);
+// returns 8
+// to collect values
+let [a, b, ...c] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+// a will = 1
+// b will = 2
+//and c will = [3, 4, 5, 6, 7, 8, 9]
+
+    </code></pre>
+    <h4>results of wrangleArray&#40;&#41;;</h4>
+    <div id="div1"></div>
+    <div id="div2"></div>
+    </div>
+
+
+    <script src="app.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-core.min.js"
+      integrity="sha256-9h14mWYYiQGkeAKg2JtijbqApb56kgw57WN6sI6dwH0="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/autoloader/prism-autoloader.min.js"
+      integrity="sha256-3S2PESHNt0YNL65z57WuHPHIv12fibpBDXepyCGHftw="
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
