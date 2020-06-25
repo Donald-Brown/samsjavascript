@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>setTimeout setInterval</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/themes/prism.min.css" integrity="sha256-cuvic28gVvjQIo3Q4hnRpQSNB0aMw3C+kjkR0i+hrWg=" crossorigin="anonymous" />
+</head>
+<body>
+  <div id="id1">I'm about to disapear</div>
+  <button id="btn">push to stop time out</button>
+  <p>see the following code to see how it works</p>
+  <pre><code class="lang-js">
+// We create a variaable to hold the timeOut funtion so that we can
+// use the button to clear it
+let timer = setTimeout("hideId('id1')", 3000);
+// hideId selects the desired element and sets its display
+//to none
+function hideId(elementId){
+  document.getElementById(elementId).style.display = 'none';
+}
+// the timer is called on window load
+window.onload = timer;
+// We add an event listener to the button and us it to clear 
+// the timer if desired
+document.getElementById('btn').addEventListener('click', function(){
+  clearTimeout(timer);
+})
+  </code></pre>
+  <h2>setInterval&#40;&#41;</h2>
+  <h3 id="clock"></h3>
+  <p>the first example of code is a clock using setInterval then there is a code example using the setTimeout to accompish the same thing</p>
+  <pre><code class="lang-js">
+// setInterval
+let now = new Date();
+let hours = now.getHours();
+let minutes = now.getMinutes();
+let seconds = now.getSeconds();
+
+function setClock(){
+  if(hours > 12){
+    hours = hours - 12;
+  }
+  if(minutes === 60){
+    hours ++;
+    minutes = 0;
+  }
+  if(seconds === 60){
+    minutes ++;
+    seconds = 0;
+  }
+
+    //display time
+  document.getElementById("clock").innerHTML = `${hours}:${("0" + minutes).slice(-2)}:${("0" + seconds).slice(-2)}`;
+
+}
+function incSeconds(){
+  seconds ++;
+  setClock();
+}
+setClock();
+window.setInterval(incSeconds, 1000);
+
+//////////////////////////////////////////////////////////////////////////////
+
+// using setTimeout();
+function updateSec() {
+  // get currents
+  let now = new Date();
+  let displayHours = now.getHours();
+  let displayMinutes = now.getMinutes();
+  let displaySeconds = now.getSeconds();
+
+  //increment seconds
+  displaySeconds ++;
+  // convert to 12 hours
+  if(displayHours > 12){
+    displayHours = displayHours - 12;
+  }
+  if(displayMinutes === 60){
+    displayHours ++;
+    displayMinutes = 0;
+  }
+  if(displaySeconds === 60){
+    displayMinutes ++;
+    displaySeconds = 0;
+  }
+
+  //display time
+  document.getElementById("clock").innerHTML = `${displayHours}:${("0" + displayMinutes).slice(-2)}:${("0" + displaySeconds).slice(-2)}`;
+
+  //callback timer
+  secondsTimer = window.setTimeout("updateSec();", 1000);
+}
+updateSec();
+  </code></pre>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-core.min.js" integrity="sha256-9h14mWYYiQGkeAKg2JtijbqApb56kgw57WN6sI6dwH0=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha256-3S2PESHNt0YNL65z57WuHPHIv12fibpBDXepyCGHftw=" crossorigin="anonymous"></script>
+  <script src="app.js"></script>
+</body>
+</html>

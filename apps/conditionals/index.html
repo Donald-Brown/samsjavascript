@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conditionals</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/themes/prism.min.css" integrity="sha256-cuvic28gVvjQIo3Q4hnRpQSNB0aMw3C+kjkR0i+hrWg=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Please examine the following ternary operator</h2>
+  <p>The statement to be evaluated comes before the question mark. If it evaluates to true then the following statement is invoked. If it evaluates to false then the statement after the colon is envoked. these can be stacked by placing the next conditonal after the colon followed by another quesion mark and colon</p>
+  <h3>Take a look at these two ternary statments</h3>
+  <pre><code class="lang-js">
+// Operation in line
+let errorMessage = count + ((count == 1) ? " error " : " errors ") + "found.";
+
+// multiple ternary conditons
+// maybe not the best 
+// should maybe use else if statements
+let icon = (area == 1) ? icon1 : (area == 2) ? icon2 : icon0;
+  </code></pre>
+  <h3>The switch Statement</h3>
+  <p>The switch statemen checks for different cases of possible variable value and runs the according statements. note the break statement after each case, if this is ommited the rest of the cases will be evaluated as true. so to go to the end of the switch statement after the case use the break</p>
+
+  <pre><code class="lang-js">
+//Basic switch statement evaluating color
+switch(color){
+  case 'red':
+    message = 'Stop!';
+    break;
+  case "yellow":
+    message = 'Proceed with caution';
+    break;
+  case 'green':
+    message = 'go ahead';
+    break;
+  default:
+    message = 'The light is out, use caution';
+}
+  </code></pre>
+  <h3>for of loop</h3>
+  <div id="days"></div>
+  <br>
+  <div id="months"></div>
+  <h3>Check out How the days and months are filled</h3>
+  <pre><code class="lang-js">
+//for of loop
+let days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
+let message = "";
+for (const day of days) {
+  message += `Day is ${day}<br>`;
+}
+document.getElementById("days").innerHTML = message;
+
+//////////////////////////////////////////////////////////////////
+let months = [
+"Jan",
+"Feb",
+"Mar",
+"Apr",
+"May",
+"Jun",
+"Jul",
+"Aug",
+"Sep",
+"Oct",
+"Nov",
+"Dec",
+];
+let mounthsDisplay = "";
+for (let month in months) {
+mounthsDisplay += `Month ${(parseInt(month) + 1)} is ${months[month]}.<br>`;
+}
+
+document.getElementById("months").innerHTML = mounthsDisplay;
+  </code></pre>
+
+  <h3>challage solution: show todays day</h3>
+  <p id="today"></p>
+  <pre><code class="lang-js">
+let days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
+
+// let me know what day of the week it is 
+let now = new Date();
+let today = now.getDay();
+let todaysMessage = `today is ${days[today]}`;
+document.getElementById('today').innerHTML = todaysMessage;
+  </code></pre>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-core.min.js" integrity="sha256-9h14mWYYiQGkeAKg2JtijbqApb56kgw57WN6sI6dwH0=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha256-3S2PESHNt0YNL65z57WuHPHIv12fibpBDXepyCGHftw=" crossorigin="anonymous"></script>
+  <script src="app.js"></script>
+</body>
+</html>
