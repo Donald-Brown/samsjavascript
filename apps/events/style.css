@@ -1,0 +1,65 @@
+table {
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+
+td {
+  padding: 0.2rem 1rem;
+}
+
+th {
+  text-align: left;
+  padding: 0.5rem 1rem 0.5rem;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+}
+
+td:first-of-type {
+  border-right: 1px solid #000;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+/* Event bubbling*/
+.outer-div {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  background: orangered;
+}
+
+.inner-div {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  width: 150px;
+  height: 150px;
+  background: green;
+}
+
+.inner-p {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  height: 100px;
+  width: 100px;
+  background: blue;
+  margin: 0;
+}
+
+#main, #main2 {
+  width: 200px;
+  height: 200px;
+  border: 1px solid red;
+}
+
+#child, 
+#otherm, 
+#other2, 
+#child2 {
+  width: 100px;
+  border: 1px solid red;
+  margin-bottom: 5px;
+}

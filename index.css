@@ -49,3 +49,7 @@ li a {
 li a:hover {
   color: orchid;
 }
+
+.color-primary {
+  color: #55efc4;
+}

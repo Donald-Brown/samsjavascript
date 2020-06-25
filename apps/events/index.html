@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Events</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/themes/prism.min.css" integrity="sha256-cuvic28gVvjQIo3Q4hnRpQSNB0aMw3C+kjkR0i+hrWg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header><h1>JavaScript Events</h1></header>
+    <p>A comprehensive list may be found <a title="https://www.w3schools.com/jsref/dom_obj_event.asp" href="https://www.w3schools.com/jsref/dom_obj_event.asp" target="_blank">here</a></p>
+    <article>
+      <h2>Mouse Events</h2>
+      <table>
+        <tr>
+          <th>Event</th>
+          <th>Takes Place When</th>
+        </tr>
+        <tr>
+          <td>onclick</td>
+          <td>User clicks an element</td>
+        </tr>
+        <tr>
+          <td>oncontextmenu</td>
+          <td>User right clicks to open a context menu</td>
+        </tr>
+        <tr>
+          <td>ondblclick</td>
+          <td>User double clicks an element</td>
+        </tr>
+        <tr>
+          <td>onmousedown</td>
+          <td>User presses a mouse button over an event</td>
+        </tr>
+        <tr>
+          <td>onmouseenter</td>
+          <td>Pointer is moved onto an element</td>
+        </tr>
+        <tr>
+          <td>onmouseleave</td>
+          <td>Pointer moved out of an element</td>
+        </tr>
+        <tr>
+          <td>onmousemove</td>
+          <td>Pointer moving while over an elment</td>
+        </tr>
+        <tr>
+          <td>onmouseover</td>
+          <td>Pointer is moved onto an element or one of it's children</td>
+        </tr>
+        <tr>
+          <td>onmouseout</td>
+          <td>
+            Pointer is moved out of an element, or out of one of its children
+          </td>
+        </tr>
+      </table>
+
+      <h2>Keyboard Events</h2>
+      <table>
+        <tr>
+          <th>Event</th>
+          <th>Takes Place When</th>
+        </tr>
+        <tr>
+          <td>onkeydown</td>
+          <td>User pressing a key</td>
+        </tr>
+        <tr>
+          <td>onkeypress</td>
+          <td>User presses a key</td>
+        </tr>
+        <tr>
+          <td>onkeyup</td>
+          <td>User releases a key</td>
+        </tr>
+      </table>
+
+      <h2>DOM Events</h2>
+      <table>
+        <tr>
+          <th>Event</th>
+          <th>Occurs When</th>
+        </tr>
+        <tr>
+          <td>onerror</td>
+          <td>An error occurs while loading an external file</td>
+        </tr>
+        <tr>
+          <td>onload</td>
+          <td>An object has loaded works on body and img tags</td>
+        </tr>
+        <tr>
+          <td>onresize</td>
+          <td>Document view is resized</td>
+        </tr>
+        <tr>
+          <td>onscroll</td>
+          <td>An elements scrollbar is being scrolled</td>
+        </tr>
+      </table>
+
+      <h2>Form Events</h2>
+      <table>
+        <tr>
+          <th>Event</th>
+          <th>Occurs When</th>
+        </tr>
+        <tr>
+          <td>onblur</td>
+          <td>An element loses focus</td>
+        </tr>
+        <tr>
+          <td>onchange</td>
+          <td>The content, selection, or checked state has changed</td>
+        </tr>
+        <tr>
+          <td>onfocus</td>
+          <td>An element gets focus</td>
+        </tr>
+        <tr>
+          <td>onreset</td>
+          <td>A form is reset</td>
+        </tr>
+        <tr>
+          <td>onselect</td>
+          <td>User selects some text</td>
+        </tr>
+        <tr>
+          <td>onsubmit</td>
+          <td>A form is submitted</td>
+        </tr>
+      </table>
+      <hr>
+      <h3>Event Handler example</h3>
+      <p>
+        <strong>onclick example: <a href="https://w3.org/" target="_blank" id="a1" title="https://w3.org/">World Wide Web Consortium &#40;W3C&#41;</a></strong>
+        <pre><code class="language-js">
+/**Using event hanlder  */
+// May only be used for one event
+let wThree = document.getElementById('a1');
+wThree.onclick = () => alert('Hello W3C');
+        </code></pre>
+      </p>
+      <h3>Using Event Listeners &#40;preferred&#41;</h3>
+      <p>
+        <strong>onclick example: <a href="https://w3.org/" target="_blank" id="a2" title="https://w3.org/">World Wide Web Consortium &#40;W3C&#41;</a></strong>
+        <pre><code class="language-js">
+/**Utilizing Event listeners */
+// Has to call a funtion or it will run immediately
+// often referred to as a callback function
+let wThree2 = document.getElementById('a2');
+wThree2.addEventListener('click', sayHello);
+// To remove the listener
+wThree2.removeEventListener('click', sayHello);
+//The function it calls
+function sayHello(){
+  alert('Hello W3C');
+}
+        </code></pre>
+      </p>
+
+      <h3>The Event Object</h3>
+      <p>The event is passed to the event listener press focus the input and press esc to recive a response</p>
+      <form action="post">
+        <h3>Input form</h3>
+        <label for="name">Enter your name</label>
+        <input type="text" size="10" id="name" name="name">
+      </form>
+      <strong>This link will be ignored with preventDefault. see code <a href="https://w3.org/" target="_blank" id="a3" title="https://w3.org/">World Wide Web Consortium &#40;W3C&#41;</a></strong>
+      <pre><code class="lang-js">
+// Ulilizing the event object
+let input = document.getElementById("name");
+// callback function
+function escKey(e) {
+  let key = e.keyCode;
+  if (key === 27) {
+    alert("Possible values for this field are: ...");
+  }
+}
+
+//Event Listenter
+// Take note it loses the 'on' prefix
+input.addEventListener('keydown', escKey);
+
+// Prevent default behavior
+let rejected = document.getElementById('a3');
+function refuseAccess(e){
+  alert('Sorry, but you are not authorized to follow this link');
+  e.preventDefault();
+}
+rejected.addEventListener('click', refuseAccess);
+      </code></pre>
+
+      <h2>Event Bubbling</h2>
+      <h3>Click a box and see what happens</h3>
+      <form id="outer" class="outer-div">form
+        <div class="inner-div">div2
+          <p id="inner" class="inner-p">p</p>
+        </div>
+      </form>
+      <p>Please take note of what this refers to</p>
+      <pre><code class="lang-js">
+// //Event Bubbling
+// // The addEventListener has a default third parameter set false
+// Originaly tried with arrow function but this didn't work correct
+document.getElementById('outer').addEventListener('click', function(event){
+  event.target.style.backgroundColor = 'yellow';
+  
+  // chrome needs some time to paint yellow
+  setTimeout(() => {
+    alert("target = " + event.target.tagName + ", this=" + this.tagName);
+    event.target.style.backgroundColor = ''
+  }, 0);
+});
+      </code></pre>
+
+      <h3>Another Example of Event Bubbling<br>
+      Using JQuery</h3>
+      <p>the moral of the story is that if a parent has a handler and a child is clicked the events will happen all the way up to the body unless one uses the stopPropagation</p>
+      <div id="main">
+        <div id="parent">
+          <div id="child">
+            child
+          </div>
+          <div id="other">
+            other
+          </div>
+        </div>
+      </div>
+
+      <pre><code class="lang-js">
+//Another event bubbling using jQuery
+$('#parent').click(function(){
+  alert('parent clicked');
+});
+$('#child').click(function(){
+  alert('child clicked');
+});
+$('#other').click(function(e){
+  alert('other clicked');
+  // The following line stops bubbling from going up the tree
+  e.stopPropagation();
+});
+      </code></pre>
+
+      <h3>Event capturing goes reverse of bubbling</h3>
+      <p>to acheive event capturing you add a third parameter to the event listener this parameter is false by default. Take note how main fires first this time</p>
+      <div id="main2">
+        <div id="parent2">
+          <div id="child2">
+            child
+          </div>
+          <div id="other2">
+            other
+          </div>
+        </div>
+      </div>
+
+      <pre><code class="lang-js">
+// this is written without jQuery 
+document.getElementById('main2').addEventListener('click', function(){
+  alert('main was clicked');
+}, true);
+document.getElementById('child2').addEventListener('click', function(){
+  alert('child was clicked');
+}, true)
+      </code></pre>
+
+
+    </article>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-core.min.js" integrity="sha256-9h14mWYYiQGkeAKg2JtijbqApb56kgw57WN6sI6dwH0=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha256-3S2PESHNt0YNL65z57WuHPHIv12fibpBDXepyCGHftw=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
