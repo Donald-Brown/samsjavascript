@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+}
+
+body {
+  background-color:#D8D8D8;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+section {
+  max-width: 700px;
+  margin: 2rem auto;
+}
+
