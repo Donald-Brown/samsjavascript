@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../vendors/prism.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Getters and setters</title>
+</head>
+<body>
+  <h1>Getters and Setters</h1>
+  <section>
+    <p>If get and set are defined within an object they are called in the background whenever a property is accessed with the dot notation</p>
+    <p>Take note of the underscore, this is necessary to prevent JavaScript from going into an infinite loop</p>
+    <pre><code class="lang-js">
+class Person {
+  constructor(name){
+    this.name = name;
+  }
+
+  setName(newName) {
+    this.name = newName;
+  }
+
+  get name(){
+    return this._name;
+  }
+
+  set name(n){
+    //set the first char to uppercase
+    // the rest to lowercase
+    n = n.charAt(0).toUpperCase() + n.slice(1).toLowerCase();
+    this._name = n;
+  }
+
+}
+
+let Mary = new Person('mary');
+Mary.setName('pAttY');
+console.log(Mary.name); // logs "Patty" to the console
+    </code></pre>
+  </section>
+  
+  <script src="../../vendors/prism.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

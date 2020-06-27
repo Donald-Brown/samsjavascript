@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../vendors/prism.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Usings Extends and super</title>
+</head>
+<body>
+  <h1>Using extends and super</h1>
+  <section>
+    <pre><code class="lang-js">
+class Pet {
+  constructor(animal, name){
+    this.animal = animal;
+    this.name = name;
+  }
+
+  setAnimal(newAnimal){
+    this.animal = newAnimal;
+  }
+
+  setName(newName){
+    this.name = newName;
+  }
+
+  get name(){
+    return this._name.toUpperCase();
+  }
+
+  set name(n){
+    //set the first char to uppercase
+    // the rest to lowercase
+    n = n.charAt(0).toUpperCase() + n.slice(1).toLowerCase();
+    this._name = n;
+  }
+}
+
+class Dog extends Pet {
+  constructor(animal, name, breed){
+    super(animal, name);
+    this.breed = breed;
+  }
+}
+
+let myDog = new Dog('dog', 'StEvE', 'Bully');
+console.log(myDog);
+// logs Dog {animal: "dog", _name: "Steve", breed: "Bully"} to the console
+    </code></pre>
+  </section>
+  <script src="../../vendors/prism.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

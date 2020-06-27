@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../vendors/prism.css">
+  <link rel="stylesheet" href="style.css">
+  <title>JavaScript classes</title>
+</head>
+<body>
+  <h1>JavaScript Classes</h1>
+  <section>
+    <h2>old way</h2>
+    <pre><code class="lang-js">
+function Pet(){
+  this.animal = '';
+  this.name = '';
+  this.setAnimal = function(newAnimal){
+    this.animal = newAnimal;
+  }
+  this.setName = function(newName){
+    this.name = newName;
+  }
+}
+let myDog = new Pet();
+myDog.setAnimal('Dog');
+myDog.setName('Socks');
+console.log(myDog);
+    </code></pre>
+    <h2>Class Way</h2>
+    <pre><code class="lang-js">
+class Pet {
+  constructor(animal, name){
+    this.animal = animal;
+    this.name = name;
+  }
+
+  setAnimal(newAnimal){
+    this.animal = newAnimal;
+  }
+
+  setName(newName){
+    this.name = newName;
+  }
+}
+let myDog = new Pet();
+myDog.setAnimal('Dog');
+myDog.setName('Socks');
+console.log(myDog);
+
+let myCat = new Pet('Cat', 'Henry');
+console.log(myCat);
+    </code></pre>
+  </section>
+
+  <script src="../../vendors/prism.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

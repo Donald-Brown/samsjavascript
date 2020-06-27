@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../vendors/prism.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Make a person</title>
+</head>
+<body>
+  <h1>Please see the code</h1>
+  <section>
+    <h2>This is my person</h2>
+    <pre><code class="lang-js">
+class Person {
+  constructor(name){
+    this.name = name;
+    this.info = `This persons name is ${this.name}`;
+  }
+
+  get name() {
+    return this._name;
+  }
+
+  set name(name) {
+    // Set first char uppercase
+    name = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+    this._name = name;
+  }
+
+  showInfo() {
+    console.log(this.info);
+  }
+  
+  sayHello() {
+    console.log(`Hello ${this.name}`);
+  }
+  
+}
+
+let mary = new Person('mary');
+mary.showInfo();
+mary.sayHello();
+    </code></pre>
+  </section>
+  <script src="../../vendors/prism.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
