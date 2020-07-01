@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>Audio / Video</title>
+  </head>
+  <body>
+    <section>
+      <h2>Vidio Tag</h2>
+      <video
+        id="video1"
+        height="300"
+        width="auto"
+        poster="../../images/jeremy-thomas-E0AHdsENmDg-unsplash.jpg"
+      >
+        <source src="../../videos/Earth - 8947.mp4" type="video/mp4" />
+        <p>video tag not supported</p>
+      </video>
+      <button type="button" id="play">Play</button>
+      <button type="button" id="pause">Pause</button>
+    </section>
+    <section class="sec">
+      <h2>Audio Tag</h2>
+      <audio id="audio1">
+        <source src="../../audio/bensound-creativeminds.mp3" type="audio/mp3" />
+        <p>audio tag not supported</p>
+      </audio>
+      <button type="button" id="audioPlay" class="btn">Play</button>
+      <button type="button" id="audioPause" class="btn">Pause</button>
+    </section>
+    <h3>valueable properties</h3>
+    <p>The audio> and video> tags have many valuable properties that you can access via JavaScript. Here are a few useful ones, the meaning of which will be immediately apparent:</p>
+    <ul>
+      <li>mediaElement.duration</li>
+      <li>mediaElement.currentTime</li>
+      <li>mediaElement.playbackRate</li>
+      <li>mediaElement.muted
+      </li>
+    </ul>
+    <p>For example, to move to a point 45 seconds into a song, you might use
+      <br>soundElement.currentTime = 45;</p>
+
+    <script src="app.js"></script>
+  </body>
+</html>
