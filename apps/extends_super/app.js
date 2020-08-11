@@ -32,4 +32,5 @@ class Dog extends Pet {
 }
 
 let myDog = new Dog('dog', 'StEvE', 'Bully');
+myDog.setName('BiRR');
 console.log(myDog);
