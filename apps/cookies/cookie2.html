@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookie2 test page</title>
+</head>
+<body>
+  <a href="index.html">Back to cookie test page</a>
+  <div id="output"></div>
+  <input type="button" id="btn" value="Delete User Info">
+  <script src="cookie.js"></script>
+  <script>
+    window.onload = function(){
+      let userInfo = getCookie('userInfo');
+      if(userInfo){
+        userInfo = userInfo.split('#');
+        document.getElementById('output').innerHTML = `Name: ${userInfo[0]}, Age: ${userInfo[1]}, Number: ${userInfo[2]}`;
+      }
+      
+      // document.getElementById('output').innerHTML = 'Your User Info: ' + getCookie('userInfo');
+      //let deleteUserInfo = deleteCookie('userInfo');
+      document.getElementById('btn').onclick = function(){
+        deleteCookie('userInfo');
+        location.reload();
+        // document.getElementById('output').innerHTML = '';
+      };
+    }
+  </script>
+</body>
+</html>

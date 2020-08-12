@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Using Cookies</title>
+</head>
+<body>
+  <a href="cookie2.html">Go To Cookie Test Page 2</a>
+  <script src="cookie.js"></script>
+  <script>
+    window.onload = function(){
+      let name = prompt('Please enter your name');
+      let age = prompt('Please enter your age');
+      let number = prompt('Please enter your id number');
+      let userData = name + '#' + age + '#' + number;
+      createCookie('userInfo', userData, 5);
+
+      // var cookievalue = prompt("Cookie Value:");
+      // createCookie("myCookieData", cookievalue);
+      
+    }
+  </script>
+</body>
+</html>
